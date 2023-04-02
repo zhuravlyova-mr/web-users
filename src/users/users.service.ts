@@ -85,18 +85,19 @@ export class UsersService {
     }
     
     //модификация роли - только админ
+    //если новая роль уже есть, старая удаляется
     async modifyRole(dto: ModifyRoleDto) {
         const user = await this.userRepository.findByPk(dto.userId);
         const role = await this.roleService.getRoleByValue(dto.oldRoleValue);
         const newrole = await this.roleService.getRoleByValue(dto.newRoleValue);
         if (user && role && newrole) {
-            await user.$remove('role', role.id);   //в дальнейшем превратится в update
+            await user.$remove('role', role.id);
             await user.$add('role', newrole.id);
-            return dto;        
         }
         else {
             throw new HttpException('Пользователь или роли не найдены', HttpStatus.NOT_FOUND);
         }
+        return dto;
     }
 
     async ban(dto: BanUserDto) {
