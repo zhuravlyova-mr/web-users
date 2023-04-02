@@ -25,7 +25,7 @@ export class ModifyProfileDto {
     @IsString({message: 'Должно быть строкой'})
     gender?: string;
 
-    @ApiProperty({example: 'м', description: 'Пол'})
+    @ApiProperty({example: '+78005000000', description: 'Номер телефона'})
     @IsPhoneNumber()
     phone?: string;
 
