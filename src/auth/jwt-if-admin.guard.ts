@@ -2,7 +2,6 @@ import {CanActivate, ExecutionContext, Injectable, UnauthorizedException} from "
 import {Observable} from "rxjs";
 import {JwtService} from "@nestjs/jwt";
 
-//п. 4.1: Контролирует возможность удаления/редактирования только самим пользователем или админом
 @Injectable()
 export class JwtIfAdmin implements CanActivate {
     constructor(private jwtService: JwtService) {
