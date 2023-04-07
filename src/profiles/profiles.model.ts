@@ -10,7 +10,7 @@ interface ProfileCreationAttrs {
     phone: string;
 }
 
-@Table({tableName: 'profiles'})
+@Table({tableName: 'profiles', createdAt: false, updatedAt: false})
 export class Profile extends Model<Profile, ProfileCreationAttrs> {
     @ApiProperty({example: '1', description: 'Уникальный идентификатор'})
     @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})

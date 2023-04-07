@@ -9,7 +9,7 @@ interface BlockCreationAttrs {
     group: string;
 }
 
-@Table({tableName: 'blocks'})
+@Table({tableName: 'blocks', createdAt: false, updatedAt: false})
 export class Block extends Model<Block, BlockCreationAttrs> {
     @ApiProperty({example: '1', description: 'Уникальный идентификатор'})
     @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
