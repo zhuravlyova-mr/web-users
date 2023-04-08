@@ -40,7 +40,7 @@ export class RolesService {
         return roles;
     }
 
-    //получить роль по значению
+    //удалить роль по значению
     async deleteRoleByValue(value: string) {
         try {
             await this.roleRepository.destroy({where: {value}});
